@@ -1,9 +1,6 @@
 package projeto.jpa.lcsports.domain;
 
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;

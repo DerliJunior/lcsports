@@ -3,8 +3,6 @@ package projeto.jpa.lcsports.request;
 import projeto.jpa.lcsports.domain.Costureira;
 import projeto.jpa.lcsports.domain.Usuario;
 
-import java.time.LocalDate;
-
 public class UsuarioCostureiraDTO {
     private Usuario usuario;
     private Costureira costureira;

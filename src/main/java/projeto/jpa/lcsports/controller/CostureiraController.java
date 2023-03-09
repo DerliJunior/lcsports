@@ -7,7 +7,6 @@ import projeto.jpa.lcsports.domain.Costureira;
 import projeto.jpa.lcsports.domain.Usuario;
 import projeto.jpa.lcsports.repository.ICostureiraRepository;
 import projeto.jpa.lcsports.repository.IUsuarioRepository;
-import projeto.jpa.lcsports.request.CostureiraDTO;
 import projeto.jpa.lcsports.request.UsuarioCostureiraDTO;
 
 import java.util.List;
