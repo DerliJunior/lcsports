@@ -1,38 +1,73 @@
 package projeto.jpa.lcsports.domain;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Table(name = "Usuario")
+@Table(name = "usuario")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idUsuario")
 public class Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private int idUsuario;
-    @Column(name = "nome")
-    private String nome;
-    @Column(name = "email")
-    private String email;
-    @Column(name = "senha")
-    private String senha;
-    @Column(name = "dataNascimento")
-    private LocalDate dataNascimento;
+
+    @Column(name = "ativo")
+    private Boolean ativo;
+
     @Column(name = "cep")
     private String cep;
-    @Column(name = "uf")
-    private String uf;
+
     @Column(name = "cidade")
     private String cidade;
+
+    @Column(name = "data_nascimento")
+    private LocalDate dataNascimento;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "nome")
+    private String nome;
+
+    @Column(name = "senha")
+    private String senha;
+
     @Column(name = "telefone")
     private String telefone;
-    @Column(name = "ativo")
-    private boolean ativo;
 
-    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+
+    @Column(name = "uf")
+    private String uf;
+
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private Costureira costureira;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<CurtidaCostureira> curtidasCostureiras;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<CurtidaPostagem> curtidasPostagens;
+
+    // getters e setters
     public Usuario() {
+    }
+
+    public Usuario(Boolean ativo, String cep, String cidade, LocalDate dataNascimento, String email, String nome, String senha, String telefone, String uf) {
+        this.ativo = ativo;
+        this.cep = cep;
+        this.cidade = cidade;
+        this.dataNascimento = dataNascimento;
+        this.email = email;
+        this.nome = nome;
+        this.senha = senha;
+        this.telefone = telefone;
+        this.uf = uf;
     }
 
     public Costureira getCostureira() {
@@ -121,6 +156,22 @@ public class Usuario {
 
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public List<CurtidaCostureira> getCurtidasCostureiras() {
+        return curtidasCostureiras;
+    }
+
+    public void setCurtidasCostureiras(List<CurtidaCostureira> curtidasCostureiras) {
+        this.curtidasCostureiras = curtidasCostureiras;
+    }
+
+    public List<CurtidaPostagem> getCurtidasPostagens() {
+        return curtidasPostagens;
+    }
+
+    public void setCurtidasPostagens(List<CurtidaPostagem> curtidasPostagens) {
+        this.curtidasPostagens = curtidasPostagens;
     }
 
     public boolean isEqualsSenha(String senhaDigitada) {
