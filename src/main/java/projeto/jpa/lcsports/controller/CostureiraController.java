@@ -39,9 +39,7 @@ public class CostureiraController {
             usuario.setCidade(costureira.getUsuario().getCidade());
             usuario.setTelefone(costureira.getUsuario().getTelefone());
             usuario.setAtivo(costureira.getUsuario().isAtivo());
-//            usuario.setCostureira(costureira.getCostureira());
 
-            System.out.println(usuario.getIdUsuario());
 
             usuarioRepository.save(usuario);
 
