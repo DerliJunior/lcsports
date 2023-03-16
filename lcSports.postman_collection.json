@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "0d522e55-241b-4ddc-8fd4-e6aa3eb7a254",
+		"name": "lcSports",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26231268"
+	},
+	"item": [
+		{
+			"name": "Costureira",
+			"item": [
+				{
+					"name": "adicionarCostureira",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": {\r\n        \"nome\": \"Eduarda\",\r\n        \"email\": \"fulano@exemplo.com\",\r\n        \"senha\": \"senha123\",\r\n        \"dataNascimento\": \"1970-01-01\",\r\n        \"cep\": \"12345-678\",\r\n        \"uf\": \"SP\",\r\n        \"cidade\": \"São Paulo\",\r\n        \"telefone\": \"(11) 98765-4321\",\r\n        \"ativo\": true\r\n    },\r\n    \"costureira\": {\r\n        \"latitude\": -23.000,\r\n        \"longitude\": -20.99\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/costureiras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"costureiras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarCostureiras",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/costureiras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"costureiras"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "adicionarUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Fulano de Tal\",\r\n  \"email\": \"fulano@exemplo.com\",\r\n  \"senha\": \"senha123\",\r\n  \"dataNascimento\": \"1970-01-01\",\r\n  \"cep\": \"12345-678\",\r\n  \"uf\": \"SP\",\r\n  \"cidade\": \"São Paulo\",\r\n  \"telefone\": \"(11) 98765-4321\",\r\n  \"ativo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listarUsuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idUsuario\": 1,\r\n  \"nome\": \"Fulano de Tal\",\r\n  \"email\": \"fulano@exemplo.com\",\r\n  \"senha\": \"senha123\",\r\n  \"dataNascimento\": {\r\n    \"year\": 2000,\r\n    \"month\": 1,\r\n    \"day\": 1\r\n  },\r\n  \"cep\": \"12345-678\",\r\n  \"uf\": \"SP\",\r\n  \"cidade\": \"São Paulo\",\r\n  \"telefone\": \"(11) 98765-4321\",\r\n  \"ativo\": true\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Postagem",
+			"item": [
+				{
+					"name": "adicionarPostagem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"yoyo mariozinhu\",\r\n    \"descricao\": \"Moletom do mario\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/postagens/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"postagens",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Imagem",
+			"item": [
+				{
+					"name": "uploadImagem",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "teste",
+									"type": "file",
+									"src": "/C:/Users/deusf/Downloads/Mojang-Studios.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/imagens",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"imagens"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
