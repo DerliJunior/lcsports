@@ -7,6 +7,5 @@ import projeto.jpa.lcsports.domain.Usuario;
 
 @Repository
 public interface IUsuarioRepository extends JpaRepository<Usuario,Integer> {
-
 }
 
