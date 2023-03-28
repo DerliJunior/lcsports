@@ -1,11 +1,13 @@
 package projeto.jpa.lcsports.domain;
 
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "imagem")
+@NoArgsConstructor
 public class Imagem {
 
     @Id
@@ -21,9 +23,12 @@ public class Imagem {
     @JsonIdentityReference(alwaysAsId = true)
     private Postagem postagem;
 
+    public Imagem(String codigoImagem, Postagem postagem) {
+        this.codigoImagem = codigoImagem;
+        this.postagem = postagem;
+    }
+
     // getters e setters
-
-
     public Integer getIdImagem() {
         return idImagem;
     }
@@ -40,9 +45,9 @@ public class Imagem {
         this.codigoImagem = codigoImagem;
     }
 
-    public Postagem getPostagem() {
-        return postagem;
-    }
+//    public Postagem getPostagem() {
+//        return postagem;
+//    }
 
     public void setPostagem(Postagem postagem) {
         this.postagem = postagem;

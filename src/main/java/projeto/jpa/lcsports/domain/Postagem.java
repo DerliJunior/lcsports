@@ -14,7 +14,6 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "postagem")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idPostagem")
-
 public class Postagem {
 
     @Id
@@ -42,17 +41,17 @@ public class Postagem {
     @OneToMany(mappedBy = "postagem")
     private List<Imagem> imagens;
 
-    public Postagem() {
-        this.dataPostagem = LocalDateTime.now();
+    public Postagem(String titulo, String descricao, Costureira costureira) {
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.costureira = costureira;
         this.imagens = new ArrayList<>();
     }
 
-    public Postagem(String titulo, String descricao) {
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.dataPostagem = LocalDateTime.now();
+    public Postagem() {
     }
 
+    // getters e setters
     public Integer getIdPostagem() {
         return idPostagem;
     }
@@ -108,8 +107,4 @@ public class Postagem {
     public void setImagens(List<Imagem> imagens) {
         this.imagens = imagens;
     }
-
-
-
-    // getters e setters
 }

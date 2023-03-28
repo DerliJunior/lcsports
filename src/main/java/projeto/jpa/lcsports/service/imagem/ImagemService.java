@@ -1,4 +1,4 @@
-package projeto.jpa.lcsports.service;
+package projeto.jpa.lcsports.service.imagem;
 
 import com.azure.core.util.BinaryData;
 import com.azure.core.util.Context;
