@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import projeto.jpa.lcsports.domain.Usuario;
 import projeto.jpa.lcsports.repository.IUsuarioRepository;
+import projeto.jpa.lcsports.request.UsuarioDTO;
 
 import java.util.List;
 import java.util.Optional;
@@ -44,5 +45,15 @@ public class UsuarioController {
 
         return ResponseEntity.ok().body(usuario.get());
     }
+
+ @GetMapping("/login")
+ public ResponseEntity<Usuario> login(@RequestBody UsuarioDTO loguser){
+        Optional<Usuario> usuarioLog = _usuarioRepository.findByEmailAndSenha(loguser.getEmail(), loguser.getSenha());
+
+        if (usuarioLog.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(usuarioLog.get());
+ }
 
 }
